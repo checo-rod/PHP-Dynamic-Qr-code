@@ -27,15 +27,16 @@
         <thead>
             <tr>
                 <th><input type="checkbox" name="bulk-select" value="1"></th>
-                <th>ID</th>
-                <th>Owner</th>
-                <th>Filename</th>
-                <th>Unique redirect identifier</th>
-                <th>URL</th>
-                <th>Qr code</th>
-                <th>Scan</th>
-                <th>Status</th>
-                <th>Operations</th>
+                <th style="text-align:center; vertical-align:middle">ID</th>
+                <th style="text-align:center; vertical-align:middle">Owner</th>
+                <th style="text-align:center; vertical-align:middle">Filename</th>
+                <th style="text-align:center; vertical-align:middle">Unique redirect<br/>identifier</th>
+                <th style="text-align:center; vertical-align:middle">Shorten URL</th>
+                <th style="text-align:center; vertical-align:middle">Target URL</th>
+                <th style="text-align:center; vertical-align:middle">Qr code</th>
+                <th style="text-align:center; vertical-align:middle">Scan</th>
+                <th style="text-align:center; vertical-align:middle">Status</th>
+                <th style="text-align:center; vertical-align:middle">Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -59,11 +60,10 @@
                     ?>
                 </td>
                 <td><?php echo htmlspecialchars($row['filename']); ?></td>
-                <td><?php echo htmlspecialchars($row['identifier']); ?></td>
+                <td><?php echo htmlspecialchars($row['identifier']) ; ?></td>
+                <td><?php echo READ_PATH . htmlspecialchars($row['identifier']) ; ?></td>
                 <td><?php echo htmlspecialchars($row['link']); ?></td>
-                <td>
-                    <?php echo '<img src="'.SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
-                </td>
+                <td><?php echo '<img src="'.SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?></td>
                 <td><?php echo htmlspecialchars($row['scan']); ?></td>
                 <td><?php echo htmlspecialchars($row['state']); ?></td>
                 <td>
